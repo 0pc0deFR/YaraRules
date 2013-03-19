@@ -2,7 +2,6 @@
 URL: https://github.com/0pc0deFR/YaraRules
 Developpeur: 0pc0deFR (alias Kevin Falcoz)
 packer.yar contient plusieurs règles permettant de détecter Crypter/Packer/Protector.
-Version 1.0
 */
 
 rule upx_0_80_to_1_24 : Packer
@@ -14,6 +13,20 @@ rule upx_0_80_to_1_24 : Packer
 
 	strings:
 		$str1={6A 60 68 60 02 4B 00 E8 8B 04 00 00 83 65 FC 00 8D 45 90 50 FF 15 8C F1 48 00 C7 45 FC FE FF FF FF BF 94 00 00 00 57}
+		
+	condition:
+		$str1 at entrypoint
+}
+
+rule upx_1_00_to_1_07 : Packer
+{
+	meta:
+		author="Kevin Falcoz"
+		date_create="19/03/2013"
+		description="UPX 1.00 to 1.07"
+
+	strings:
+		$str1={60 BE 00 ?0 4? 00 8D BE 00 B0 F? FF ?7 8? [3] ?0 9? [0-9] 90 90 90 90 [0-2] 8A 06 46 88 07 47 01 DB 75 07 8B 1E 83 EE FC 11 DB 72 ED B8 01 00 00 00 01 DB 75 07 8B 1E 83 EE FC 11 DB 11 C0}
 		
 	condition:
 		$str1 at entrypoint
@@ -102,4 +115,32 @@ rule winrar_sfx : Packer
 		
 	condition:
 		$signature1
+}
+
+rule mpress_2_xx_x86 : Packer
+{
+	meta:
+		author="Kevin Falcoz"
+		date_create="19/03/2013"
+		description="MPRESS v2.XX x86"
+	
+	strings:
+		$signature1={60 E8 00 00 00 00 58 05 5A 0B 00 00 8B 30 03 F0 2B C0 8B FE 66 AD C1 E0 0C 8B C8 50 AD 2B C8 03 F1 8B C8 57 51 49 8A 44 39 06 88 04 31 75 F6 2B C0 AC 8B C8 80 E1 F0 24} 
+		
+	condition:
+		$signature1 at entrypoint
+}
+
+rule mpress_2_xx_x64 : Packer
+{
+	meta:
+		author="Kevin Falcoz"
+		date_create="19/03/2013"
+		description="MPRESS v2.XX x64"
+	
+	strings:
+		$signature1={57 56 53 51 52 41 50 48 8D 05 DE 0A 00 00 48 8B 30 48 03 F0 48 2B C0 48 8B FE 66 AD C1 E0 0C 48 8B C8 50 AD 2B C8 48 03 F1 8B C8 57 44 8B C1 FF C9 8A 44 39 06 88 04 31} 
+		
+	condition:
+		$signature1 at entrypoint
 }

@@ -2,7 +2,6 @@
 URL: https://github.com/0pc0deFR/YaraRules
 Developpeur: 0pc0deFR (alias Kevin Falcoz)
 compiler.yar contient plusieurs règles permettant d'identifier un compilateur
-Version 1.0
 */
 
 rule visual_basic_5_6 : Compiler
