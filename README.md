@@ -1,4 +1,4 @@
 YaraRules
 =========
 
-Multiple rules for yara-project for detect compiler/packer/protector
+Multiple rules for yara-project to detect compiler/packer/protector
