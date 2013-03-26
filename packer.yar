@@ -151,7 +151,7 @@ rule mpress_2_xx_net : Packer
 {
 	meta:
 		author="Kevin Falcoz"
-		date="24/03/2013"
+		date_create="24/03/2013"
 		description="MPRESS v2.XX .NET"
 	
 	strings:
@@ -165,7 +165,7 @@ rule rpx_1_xx : Packer
 {
 	meta:
 		author="Kevin Falcoz"
-		date="24/03/2013"
+		date_create="24/03/2013"
 		description="RPX v1.XX"
 	
 	strings:
@@ -180,7 +180,7 @@ rule mew_11_xx : Packer
 {
 	meta:
 		author="Kevin Falcoz"
-		date="25/03/2013"
+		date_create="25/03/2013"
 		description="MEW 11"
 	
 	strings:
