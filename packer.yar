@@ -190,3 +190,31 @@ rule mew_11_xx : Packer
 	condition:
 		$signature1 and $signature2
 }
+
+rule yoda_crypter_1_2 : Crypter
+{
+	meta:
+		author="Kevin Falcoz"
+		date_create="15/04/2013"
+		description="Yoda Crypter 1.2"
+	
+	strings:
+		$signature1={60 E8 00 00 00 00 5D 81 ED F3 1D 40 00 B9 7B 09 00 00 8D BD 3B 1E 40 00 8B F7 AC [19] EB 01 [27] AA E2 CC}
+		
+	condition:
+		$signature1 at entrypoint
+}
+
+rule yoda_crypter_1_3 : Crypter
+{
+	meta:
+		author="Kevin Falcoz"
+		date_create="15/04/2013"
+		description="Yoda Crypter 1.3"
+	
+	strings:
+		$signature1={55 8B EC 53 56 57 60 E8 00 00 00 00 5D 81 ED 6C 28 40 00 B9 5D 34 40 00 81 E9 C6 28 40 00 8B D5 81 C2 C6 28 40 00 8D 3A 8B F7 33 C0 EB 04 90 EB 01 C2 AC}
+		
+	condition:
+		$signature1 at entrypoint
+}
