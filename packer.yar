@@ -1,7 +1,7 @@
 /*
 URL: https://github.com/0pc0deFR/YaraRules
 Developpeur: 0pc0deFR (alias Kevin Falcoz)
-packer.yar contient plusieurs r�gles permettant de d�tecter Crypter/Packer/Protector.
+packer.yar contient plusieurs règles permettant de détecter Crypter/Packer/Protector.
 */
 
 rule upx_0_80_to_1_24 : Packer
